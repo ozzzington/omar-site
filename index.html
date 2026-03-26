@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>~*~OmAr ZaIbAk~*~ :: The Startup Acquisition Machine :: 3 for 3 Baby</title>
+  <title>OZTV - Omar Zaibak Television Network - NOW BROADCASTING</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/tanay-custom.css">
   <style>
@@ -17,6 +17,12 @@
 <body class="bg-tiled tanay-page">
   <canvas id="matrix-canvas"></canvas>
 
+  <!-- ON AIR INDICATOR -->
+  <div class="on-air-indicator">&#9679; ON AIR</div>
+
+  <!-- VHS TIMESTAMP -->
+  <div class="vhs-timestamp"><span class="rec-dot">&#9679;</span> REC  <span id="vhs-time">03:26:97</span>  SP</div>
+
   <!-- TOP MARQUEE -->
   <div class="marquee-bar">
     <div class="marquee-content">
@@ -27,7 +33,7 @@
   <!-- UNDER CONSTRUCTION -->
   <div class="under-construction">
     <div class="under-construction-inner">
-      <span class="blink">&#128679; THIS PAGE IS UNDER CONSTRUCTION (it'll probably get acquired before it's finished) &#128679;</span>
+      <span class="blink">&#128250; TECHNICAL DIFFICULTIES &mdash; PLEASE STAND BY (it'll probably get acquired before the signal returns) &#128250;</span>
     </div>
   </div>
 
@@ -35,10 +41,15 @@
 
     <!-- HEADER -->
     <div class="tanay-header">
-      <div class="bali-vibes">&#127920;&#128176;&#9889;&#128640;&#127464;&#127462;&#127920;&#128176;&#9889;&#128640;&#127464;&#127462;</div>
+      <div class="channel-bar">
+        <span class="channel-number">CH 03</span>
+        <span class="channel-name">OZTV</span>
+        <span id="live-clock" style="color: var(--neon-green);">--:--</span>
+      </div>
 
+      <br>
       <div class="tanay-avatar" id="avatar">
-        &#127920;
+        &#128250;
       </div>
       <br>
 
@@ -50,7 +61,7 @@
       </div>
       <br>
 
-      <!-- MIDI PLAYER -->
+      <!-- VHS PLAYER -->
       <div class="midi-player">
         <div class="eq-bars">
           <div class="eq-bar"></div>
@@ -62,13 +73,14 @@
           <div class="eq-bar"></div>
         </div>
         <div class="controls">
-          <button title="Previous">&#9664;&#9664;</button>
-          <button title="Play/Pause">&#9654;</button>
-          <button title="Next">&#9654;&#9654;</button>
+          <button title="Rewind">&#9664;&#9664;</button>
+          <button title="Play">&#9654;</button>
+          <button title="Fast Forward">&#9654;&#9654;</button>
           <button title="Stop">&#9632;</button>
+          <button title="Record" style="color: var(--cyber-red);">&#9679;</button>
         </div>
         <div class="song-name">
-          <span>&#127925; NOW PLAYING: omar_acquisition_jackpot_3_for_3_REMIX_final_v3.midi</span>
+          <span>&#128252; NOW RECORDING: omar_acquisition_highlights_VHS_rip.avi</span>
         </div>
       </div>
       <br>
@@ -350,11 +362,11 @@
     <div style="padding: 0 15px;">
 
       <div style="text-align: center; margin: 20px 0;">
-        <h2 class="rainbow-text" style="font-family: 'Bungee Shade', cursive; font-size: clamp(20px, 4vw, 36px);">
-          &#127918; GAME ZONE &#127918;
+        <h2 class="rainbow-text" style="font-family: 'Bangers', cursive; font-size: clamp(24px, 5vw, 42px); letter-spacing: 3px;">
+          &#127918; OZTV ARCADE &mdash; VIEWER INTERACTIVE ZONE &#127918;
         </h2>
         <p style="font-family: 'Comic Sans MS', cursive; color: var(--neon-pink); font-size: 14px;">
-          (because every good website needs games, obviously)
+          (press any button on your remote to play)
         </p>
       </div>
 
@@ -367,7 +379,7 @@
         <div class="game-header">
           <span id="snake-canvas-score" class="game-score">Press START to play</span>
           <button id="snake-canvas-start" style="
-            background: #39ff14; color: #000; border: 2px outset #66ff66;
+            background: var(--neon-green); color: #000; border: 2px outset var(--electric-purple);
             font-family: 'Press Start 2P', monospace; font-size: 9px;
             padding: 4px 12px; cursor: pointer;
           ">&#128013; START</button>
@@ -390,12 +402,12 @@
           <span id="whack-game-score" class="game-score">Click START!</span>
           <span id="whack-game-timer" class="game-score"></span>
           <button id="whack-game-start" style="
-            background: #ff6600; color: #000; border: 2px outset #ff9944;
+            background: var(--neon-orange); color: #000; border: 2px outset var(--neon-yellow);
             font-family: 'Press Start 2P', monospace; font-size: 9px;
             padding: 4px 12px; cursor: pointer;
           ">&#128296; START</button>
         </div>
-        <div id="whack-game" style="padding: 15px; background: #0a0500;">
+        <div id="whack-game" style="padding: 15px; background: #0d0520;">
           <div id="whack-game-grid" style="
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -415,7 +427,7 @@
           <span>&#127850; COOKIE CLICKER: Revenue Edition</span>
           <div class="window-buttons"><span>_</span><span>&#9633;</span><span>X</span></div>
         </div>
-        <div style="padding: 20px; text-align: center; background: #0a0500;">
+        <div style="padding: 20px; text-align: center; background: #0d0520;">
           <div id="cookie-game">
             <div id="cookie-game-count" style="font-family: 'Press Start 2P', monospace; font-size: 14px; color: var(--neon-yellow); margin-bottom: 5px;">0 cookies</div>
             <div id="cookie-game-cps" style="font-family: 'Silkscreen', monospace; font-size: 9px; color: #888; margin-bottom: 15px;">0 cookies/sec | Click power: 1</div>
@@ -475,12 +487,12 @@
     <!-- BADGE SHELF -->
     <div style="text-align: center; padding: 15px;">
       <div class="badge-shelf">
-        <div class="badge badge-netscape">NETSCAPE NOW!</div>
-        <div class="badge badge-construction">ALWAYS ACQUIRING</div>
-        <div class="badge badge-free">OMAR APPROVED</div>
-        <div class="badge badge-geocities">GEOCITIES 4EVER</div>
-        <div class="badge badge-ie">MADE IN TORONTO</div>
-        <div class="badge badge-noframes">FRAMES R BAD</div>
+        <div class="badge badge-netscape">AS SEEN ON TV</div>
+        <div class="badge badge-construction">SLIME ZONE</div>
+        <div class="badge badge-free">VIEWER'S CHOICE</div>
+        <div class="badge badge-geocities">VHS CERTIFIED</div>
+        <div class="badge badge-ie">CHANNEL OZTV</div>
+        <div class="badge badge-noframes">MUCH APPROVED</div>
       </div>
       <br>
 
@@ -496,10 +508,10 @@
       </div>
       <br><br>
       <p style="font-family: 'Comic Sans MS', cursive; font-size: 11px; color: #666;">
-        &#169; 2003 Omar's Acquisition Casino. All rights reserved.<br>
-        No startups were harmed in the making of this website.<br>
+        &#169; 1997 OZTV Broadcasting Corp. All rights reserved.<br>
+        No startups were harmed in the making of this broadcast.<br>
         (They were actually acquired with generous terms.)<br><br>
-        <span style="font-size: 9px; color: #444;">Best viewed at 800x600 on Netscape Navigator 4.0 while waiting for your acquisition offer from Omar</span>
+        <span style="font-size: 9px; color: #444;">Best viewed on a 27" CRT television with rabbit ear antenna while eating Dunkaroos and waiting for your acquisition offer from Omar</span>
       </p>
     </div>
 

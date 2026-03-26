@@ -1,10 +1,10 @@
 /* ============================================
-   SHARED EFFECTS ENGINE
-   "We put the FUN in dysFUNctional"
+   OZTV BROADCAST EFFECTS ENGINE
+   "Now broadcasting from the Greater Toronto Area"
    ============================================ */
 
-// === SPARKLE CURSOR TRAIL ===
-const sparkleEmojis = ['✨', '⭐', '💫', '🌟', '✴️', '🔥', '💖', '⚡'];
+// === SLIME CURSOR TRAIL ===
+const sparkleEmojis = ['💚', '🟢', '☘️', '🧪', '📺', '⚡'];
 let sparkleThrottle = 0;
 
 document.addEventListener('mousemove', (e) => {
@@ -22,8 +22,8 @@ document.addEventListener('mousemove', (e) => {
   setTimeout(() => sparkle.remove(), 800);
 });
 
-// === SNOWFALL (but make it emojis) ===
-const snowEmojis = ['❄️', '🌸', '⭐', '✨', '🦋', '🌈', '💎', '🎀', '🍕'];
+// === FALLING TV DEBRIS ===
+const snowEmojis = ['📺', '📡', '🎬', '📼', '🎮', '🟢', '🟣', '🟠'];
 
 function createSnowflake() {
   const flake = document.createElement('div');
@@ -40,8 +40,8 @@ function createSnowflake() {
 
 setInterval(createSnowflake, 600);
 
-// === FLOATING EMOJIS FROM BOTTOM ===
-const floatEmojis = ['🚀', '🔥', '💯', '🎉', '🤖', '🧠', '💰', '⚡', '🎸', '👾'];
+// === FLOATING CHANNEL BUMPER EMOJIS ===
+const floatEmojis = ['📺', '📡', '🎬', '📼', '🎵', '🟢', '🟣', '🎸', '🤘', '💀'];
 
 function createFloatingEmoji() {
   const emoji = document.createElement('div');
@@ -82,15 +82,14 @@ function initEyes() {
   });
 }
 
-// === FAKE POPUP SYSTEM ===
+// === TV BROADCAST POPUP SYSTEM ===
 const popupMessages = [
-  { title: 'CONGRATULATIONS!!!', icon: '🎉', message: 'You are the 1,000,000th visitor to this page!!!', buttons: ['Claim Prize', 'Claim BIGGER Prize'] },
-  { title: 'Warning', icon: '⚠️', message: 'Your computer has been infected with TOO MUCH SWAG', buttons: ['OK', 'More Swag Please'] },
-  { title: 'System Alert', icon: '🤖', message: 'AI has detected that you are AWESOME. No action needed.', buttons: ['I Know', 'Tell Me More'] },
-  { title: 'Hot Singles Alert', icon: '🔥', message: 'Hot GTM Engineers in your area want to optimize your funnel!', buttons: ['Optimize Now', 'My Funnel Is Fine'] },
-  { title: 'Clippy Says:', icon: '📎', message: 'It looks like you\'re trying to browse a website. Would you like help with that?', buttons: ['Yes Please', 'Go Away Clippy'] },
-  { title: 'Free Download!!!', icon: '💿', message: 'Download more RAM for FREE! (only 420 easy payments of $0.01)', buttons: ['DOWNLOAD', 'I Need More RAM'] },
-  { title: 'Security Warning', icon: '🛡️', message: 'This website is protected by WEB 1.0 SECURITY STANDARDS (aka nothing)', buttons: ['Cool', 'I Feel Safe'] },
+  { title: '📺 CHANNEL OZTV ALERT', icon: '📡', message: 'You are now tuned to OZTV — the only channel with a 100% acquisition rate!', buttons: ['Stay Tuned', 'Change Channel'] },
+  { title: '⚠️ SIGNAL INTERRUPTION', icon: '📺', message: 'We are experiencing TOO MUCH TALENT in the broadcast area.', buttons: ['OK', 'Boost Signal'] },
+  { title: '🎬 VIEWER POLL', icon: '🗳️', message: 'Should Omar go for acquisition #4? Call 1-800-GTM-WIZARD now!', buttons: ['YES', 'ABSOLUTELY YES'] },
+  { title: '📼 VHS ALERT', icon: '📼', message: 'This broadcast is being recorded on VHS for archival purposes. Be kind, rewind.', buttons: ['Rewind', 'Fast Forward'] },
+  { title: '🟢 SLIME TIME!', icon: '🟢', message: 'YOU JUST GOT SLIMED! (virtually)', buttons: ['Ewww', 'SLIME ME AGAIN'] },
+  { title: '📡 SATELLITE UPLINK', icon: '🛰️', message: 'Acquiring satellite feed from Omar\'s acquisition headquarters...', buttons: ['Connect', 'Scramble Signal'] },
 ];
 
 let popupCount = 0;
@@ -182,52 +181,68 @@ function initDancingLetters() {
       span.className = 'dance-letter';
       span.textContent = char === ' ' ? '\u00A0' : char;
       span.style.animationDelay = (i * 0.08) + 's';
-      // Random colors per letter
-      const colors = ['#ff0000', '#ff7700', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#ff00ff'];
+      // YTV/MuchMusic color scheme
+      const colors = ['#39ff14', '#7B2D8E', '#FF6B00', '#FFD700', '#FF1493', '#39ff14', '#7B2D8E'];
       span.style.color = colors[i % colors.length];
       el.appendChild(span);
     });
   });
 }
 
-// === MATRIX RAIN BACKGROUND ===
-function initMatrixRain() {
+// === TV STATIC BACKGROUND ===
+function initTVStatic() {
   const canvas = document.getElementById('matrix-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const chars = 'アイウエオカキクケコサシスセソタチツテトCLAYGTM01BOTSCODE';
-  const fontSize = 14;
-  const columns = Math.floor(canvas.width / fontSize);
-  const drops = new Array(columns).fill(1);
+  // Render at half resolution for performance
+  const scale = 0.5;
+  canvas.width = Math.floor(window.innerWidth * scale);
+  canvas.height = Math.floor(window.innerHeight * scale);
 
   function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#0f0';
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < drops.length; i++) {
-      const char = chars[Math.floor(Math.random() * chars.length)];
-      ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i]++;
+    const imageData = ctx.createImageData(canvas.width, canvas.height);
+    const data = imageData.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const v = Math.random() * 255;
+      data[i] = data[i + 1] = data[i + 2] = v;
+      data[i + 3] = 255;
     }
+    ctx.putImageData(imageData, 0, 0);
   }
 
-  setInterval(draw, 50);
+  setInterval(draw, 66); // ~15fps for performance
 
   window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = Math.floor(window.innerWidth * scale);
+    canvas.height = Math.floor(window.innerHeight * scale);
   });
+}
+
+// === LIVE CLOCK ===
+function initLiveClock() {
+  const el = document.getElementById('live-clock');
+  if (!el) return;
+  function update() {
+    el.textContent = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  }
+  update();
+  setInterval(update, 1000);
+}
+
+// === VHS TIMESTAMP ===
+function initVHSTimestamp() {
+  const el = document.getElementById('vhs-time');
+  if (!el) return;
+  function update() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    el.textContent = h + ':' + m + ':' + s;
+  }
+  update();
+  setInterval(update, 1000);
 }
 
 // === KONAMI CODE EASTER EGG ===
@@ -262,13 +277,13 @@ function activateKonamiMode() {
     popup.style.transform = 'translate(-50%, -50%)';
     popup.innerHTML = `
       <div class="fake-popup-titlebar">
-        <span>SECRET UNLOCKED!!! 🎮</span>
+        <span>📺 SECRET CHANNEL UNLOCKED!!! 🎮</span>
         <span class="close-btn" onclick="this.closest('.fake-popup').remove();">X</span>
       </div>
       <div class="fake-popup-body">
         <div class="popup-icon">🏆</div>
-        <p style="font-size:16px;"><b>YOU FOUND THE KONAMI CODE!</b><br>You are now a certified 1337 h4x0r</p>
-        <button onclick="this.closest('.fake-popup').remove();">I AM THE CHOSEN ONE</button>
+        <p style="font-size:16px;"><b>YOU FOUND THE KONAMI CODE!</b><br>You've unlocked OZTV's secret channel. Welcome to the inner circle.</p>
+        <button onclick="this.closest('.fake-popup').remove();">I AM THE CHOSEN VIEWER</button>
       </div>
     `;
     document.body.appendChild(popup);
@@ -285,12 +300,12 @@ document.addEventListener('contextmenu', (e) => {
   popup.style.left = Math.min(e.clientX, window.innerWidth - 350) + 'px';
   popup.innerHTML = `
     <div class="fake-popup-titlebar">
-      <span>Nice Try! 😏</span>
+      <span>📡 Signal Piracy Detected! 😏</span>
       <span class="close-btn" onclick="this.closest('.fake-popup').remove();">X</span>
     </div>
     <div class="fake-popup-body">
       <div class="popup-icon">🚫</div>
-      <p>You cannot steal my <b>epic HTML code</b>!<br>This site is protected by <i>Web 1.0 DRM</i>.</p>
+      <p>This broadcast is protected by <b>OZTV's proprietary signal encryption</b>.<br>Nice try, signal pirate!</p>
       <button onclick="this.closest('.fake-popup').remove();">I'm Sorry</button>
     </div>
   `;
@@ -303,9 +318,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initEyes();
   initVisitorCounter();
   initDancingLetters();
-  initMatrixRain();
+  initTVStatic();
+  initLiveClock();
+  initVHSTimestamp();
 
-  // Start with a welcome "popup"
+  // Start with a welcome broadcast
   setTimeout(() => {
     const welcomePopup = document.createElement('div');
     welcomePopup.className = 'fake-popup active';
@@ -313,13 +330,13 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomePopup.style.left = Math.max(50, (window.innerWidth / 2) - 200) + 'px';
     welcomePopup.innerHTML = `
       <div class="fake-popup-titlebar">
-        <span>Welcome to the INFORMATION SUPERHIGHWAY!</span>
+        <span>📺 WELCOME TO OZTV!</span>
         <span class="close-btn" onclick="this.closest('.fake-popup').remove();">X</span>
       </div>
       <div class="fake-popup-body">
-        <div class="popup-icon">🌐</div>
-        <p><b>Welcome, traveler!</b><br>You have reached the WORLD WIDE WEB.<br>Please set your resolution to 800x600 for the best experience.</p>
-        <button onclick="this.closest('.fake-popup').remove();">Enter the Cyber Zone</button>
+        <div class="popup-icon">📡</div>
+        <p><b>NOW BROADCASTING!</b><br>You are tuned to OZTV — Channel 03.<br>Please adjust your rabbit ears for optimal reception.</p>
+        <button onclick="this.closest('.fake-popup').remove();">📺 Start Watching</button>
       </div>
     `;
     document.body.appendChild(welcomePopup);

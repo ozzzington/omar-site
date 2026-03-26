@@ -1,16 +1,16 @@
 /* ============================================
-   TANAY MISHRA - CUSTOM OVERRIDES
-   "The Automation King of Bali"
+   OZTV - CUSTOM OVERRIDES
+   "Now Broadcasting from the Greater Toronto Area"
    ============================================ */
 
-/* Tanay gets a special tropical-chaos theme */
+/* OZTV slime-punk theme */
 .tanay-page {
-  --accent-1: #ff00ff;
-  --accent-2: #00ffff;
-  --accent-3: #ffff00;
+  --accent-1: #7B2D8E;
+  --accent-2: #39ff14;
+  --accent-3: #FF6B00;
 }
 
-/* Special header for Tanay */
+/* OZTV header */
 .tanay-header {
   text-align: center;
   padding: 30px 15px 15px;
@@ -18,52 +18,72 @@
 }
 
 .tanay-header h1 {
-  font-family: 'Bungee Shade', cursive;
-  font-size: clamp(28px, 6vw, 56px);
+  font-family: 'Bangers', cursive;
+  font-size: clamp(32px, 7vw, 64px);
   line-height: 1.2;
   margin-bottom: 5px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 .tanay-header .subtitle {
-  font-family: 'Rubik Glitch', system-ui;
+  font-family: 'Permanent Marker', cursive;
   font-size: clamp(14px, 3vw, 22px);
   color: var(--neon-yellow);
+  transform: rotate(-2deg);
+  display: inline-block;
 }
 
 /* Profile pic - generates a fun avatar since we don't have a real photo */
 .tanay-avatar {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 165px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
-  border-radius: 50%;
+  background: radial-gradient(ellipse, #1a1a3a, #0A0A0A);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 100px;
-  border: 5px solid gold;
+  font-size: 80px;
+  border: 6px solid #333;
   box-shadow:
-    0 0 20px var(--neon-pink),
-    0 0 40px var(--neon-blue),
-    0 0 60px var(--neon-pink);
+    inset 0 0 30px rgba(57, 255, 20, 0.2),
+    0 0 20px var(--electric-purple),
+    0 0 40px rgba(57, 255, 20, 0.15);
   animation: avatar-pulse 2s ease-in-out infinite alternate;
   position: relative;
+  overflow: hidden;
+}
+
+/* Scanlines on the TV avatar */
+.tanay-avatar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.2) 2px,
+    rgba(0,0,0,0.2) 4px
+  );
+  pointer-events: none;
 }
 
 @keyframes avatar-pulse {
   0% {
     box-shadow:
-      0 0 20px var(--neon-pink),
-      0 0 40px var(--neon-blue),
-      0 0 60px var(--neon-pink);
+      inset 0 0 30px rgba(57, 255, 20, 0.2),
+      0 0 20px var(--electric-purple),
+      0 0 40px rgba(57, 255, 20, 0.15);
     transform: scale(1);
   }
   100% {
     box-shadow:
-      0 0 30px var(--neon-blue),
-      0 0 60px var(--neon-pink),
-      0 0 90px var(--neon-blue);
-    transform: scale(1.05);
+      inset 0 0 40px rgba(57, 255, 20, 0.3),
+      0 0 30px var(--neon-green),
+      0 0 60px rgba(123, 45, 142, 0.3);
+    transform: scale(1.03);
   }
 }
 
@@ -77,36 +97,41 @@
 }
 
 .cert-badge {
-  font-family: var(--pixel-font);
-  font-size: 8px;
-  padding: 6px 12px;
+  font-family: var(--bangers);
+  font-size: 12px;
+  padding: 6px 14px;
   border: 2px solid;
   animation: badge-glow 1.5s ease-in-out infinite alternate;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
 }
 
+.cert-badge:nth-child(odd) { transform: rotate(-3deg); }
+.cert-badge:nth-child(even) { transform: rotate(2deg); }
+
 .cert-badge.clay {
-  background: rgba(255, 102, 0, 0.2);
-  border-color: #ff6600;
-  color: #ff9944;
+  background: rgba(255, 107, 0, 0.3);
+  border-color: var(--neon-orange);
+  color: var(--neon-orange);
 }
 
 .cert-badge.lindy {
-  background: rgba(0, 255, 255, 0.2);
-  border-color: #00ffff;
-  color: #00ffff;
+  background: rgba(57, 255, 20, 0.2);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
 }
 
 .cert-badge.bots {
-  background: rgba(255, 0, 255, 0.2);
-  border-color: #ff00ff;
-  color: #ff66ff;
+  background: rgba(123, 45, 142, 0.3);
+  border-color: var(--electric-purple);
+  color: #cc66ff;
 }
 
 .cert-badge.accenture {
-  background: rgba(160, 0, 255, 0.2);
-  border-color: #a000ff;
-  color: #cc66ff;
+  background: rgba(255, 20, 147, 0.2);
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
 }
 
 @keyframes badge-glow {
@@ -150,13 +175,16 @@
   margin-left: 40px;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px dashed var(--neon-pink);
-  background: rgba(255, 0, 255, 0.05);
+  border: 2px solid var(--neon-orange);
+  background: rgba(123, 45, 142, 0.1);
   position: relative;
 }
 
+.timeline-item:nth-child(odd) { transform: rotate(-0.5deg); }
+.timeline-item:nth-child(even) { transform: rotate(0.5deg); }
+
 .timeline-item::before {
-  content: '⚡';
+  content: '📺';
   position: absolute;
   left: -30px;
   top: 10px;
@@ -164,10 +192,11 @@
 }
 
 .timeline-item h4 {
-  font-family: var(--silkscreen);
-  font-size: 11px;
+  font-family: var(--bangers);
+  font-size: 14px;
   color: var(--neon-yellow);
   margin-bottom: 4px;
+  letter-spacing: 1px;
 }
 
 .timeline-item .timeline-company {

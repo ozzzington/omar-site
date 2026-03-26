@@ -26,8 +26,8 @@ function initSnakeGame(canvasId) {
   const scoreEl = document.getElementById(canvasId + '-score');
   const startBtn = document.getElementById(canvasId + '-start');
 
-  // Neon colors for the snake
-  const snakeColors = ['#39ff14', '#32e612', '#2bcc10', '#24b30e', '#1d990c'];
+  // YTV slime green / purple snake colors
+  const snakeColors = ['#39ff14', '#5BD33A', '#7B2D8E', '#6B238E', '#5A1A7E'];
 
   function placeFood() {
     food.x = Math.floor(Math.random() * tileCount);
